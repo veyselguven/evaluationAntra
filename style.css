@@ -50,7 +50,7 @@ body {
   border: 2px solid;
   border-color: #717ea3;
 }
-.completed:hover,
+/* .completed:hover, */
 .active:hover {
   background-color: rgb(228, 204, 85);
 }
@@ -82,8 +82,8 @@ body {
 .delete-btn {
   background-color: red;
   color: white;
-  font-size: 1.8rem;
-  border-radius: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
   padding: 10px;
   font-weight: 800;
 }

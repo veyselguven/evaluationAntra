@@ -45,13 +45,8 @@ const renderTodos = (posts, element) => {
   }
   render(tmp, element);
 };
-// Our todo model and state model
-class ToDo {
-  constructor(task, completed) {
-    this.title = task;
-    this.completed = completed;
-  }
-}
+// Our state model
+
 class State {
   constructor() {
     this._active_todos = [];
@@ -77,14 +72,13 @@ const Todo = (() => {
   const todoPath = "todos";
   const fetchTodo = async () => {
     const todosEndPoint = [BASE_URL, todoPath].join("/");
-    return await fetch(todosEndPoint)
-      .then((res) => {
-        console.log(res);
-        return res.json();
-      })
-      .then((data) => {
-        console.log(data);
-      });
+    return await fetch(todosEndPoint).then((res) => {
+      console.log(res);
+      return res.json();
+    });
+    //   .then((data) => {
+    //     console.log(data);
+    //   });
   };
   const addTodo = async (data) => {
     const addTodoEndPoint = [BASE_URL, todoPath].join("/");
@@ -121,7 +115,7 @@ const Starter = () => {
     console.log(inputValue);
     addButton.addEventListener("click", (event) => {
       event.preventDefault();
-      const activeTodo = new ToDo(inputValue.value, false);
+      const activeTodo = { title: inputValue.value, completed: false };
       Todo.addTodo(activeTodo).then((data) => {
         state._active_todos = [data, ...state._active_todos];
       });
@@ -136,9 +130,34 @@ const Starter = () => {
       }
     });
   };
+  const updateTodo = () => {
+    const buttonDiv = document.getElementById("btn-div");
+    console.log(buttonDiv);
+    const container = document.querySelector(".todo-container");
+    container.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (e.target.id === "editBtn") {
+        let node = document.getElementById(`li${e.target.name}`);
+        console.log(node.nodeName, node);
+        if (node.hasChildNodes) {
+          console.log("child");
+        }
+        if (node.nodeName === "P") {
+          let newElem = document.createElement("input");
+          newElem.value = node.innerText;
+          newElem.id = `li${e.target.name}`;
+          node.replaceWith(newElem);
+          console.log(node.nextSibling);
+          let newButton = document.createElement("button");
+        }
+      }
+    });
+  };
   init();
   addTodo();
   deleteTodo();
+  updateTodo();
 };
 
 Starter();
