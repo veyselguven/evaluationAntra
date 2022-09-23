@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 25px;
+}
+body {
+  font-size: 1.6rem;
+  width: 50vw;
+  margin: 0 auto;
+}
+
+.navBar {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: blue;
+  margin: 40px;
+}
+.main-container {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  margin-bottom: 30px;
+}
+
+.button-submit {
+  background-color: red;
+  width: 120px;
+  color: white;
+  margin-left: 10px;
+  padding: 10px;
+  font-weight: 100;
+  border-radius: 10px;
+}
+
+.todo-input {
+  height: 100%;
+  font-size: 2rem;
+}
+
+.todo-container {
+  text-align: center;
+  background-color: rgb(225, 239, 253);
+  padding: 20px;
+  border-radius: 25px;
+  border: 2px solid;
+  border-color: #717ea3;
+}
+.completed:hover,
+.active:hover {
+  background-color: rgb(228, 204, 85);
+}
+.completed,
+.active {
+  padding: 5px;
+  background-color: rgb(243, 234, 174);
+}
+.completed > p {
+  margin-left: 10px;
+  text-decoration: line-through;
+}
+.active > p {
+  margin-left: 10px;
+}
+.uncompleted-todo-conatiner > div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+
+.completed-todo-container > div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-radius: 3px;
+}
+.delete-btn {
+  background-color: red;
+  color: white;
+  font-size: 1.8rem;
+  border-radius: 12px;
+  padding: 10px;
+  font-weight: 800;
+}
